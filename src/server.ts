@@ -4,14 +4,14 @@ import { errorHandler } from "./middleware/errorHandler";
 import cors from 'cors'
 
 const app = express();
-const PORT = Number(process.env.PORT) ?? 8080;
+const PORT = Number(process.env.PORT) || 8080;
 
 
 app.use(cors({origin:process.env.FRONTEND_URL}))
 
 app.use(express.json());
 
-app.use("/Students", StudentsRoute);
+app.use("/students", StudentsRoute);
 
 
 app.use(errorHandler);
