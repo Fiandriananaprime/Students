@@ -5,6 +5,7 @@ class StudentController {
   findAll = (req: Request, res: Response, next: NextFunction) => {
     try {
       res.status(200).json(StudentsService.findAll());
+      
     } catch (err) {
       next(err);
     }
