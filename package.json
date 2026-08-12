@@ -1,24 +1,25 @@
 {
-  "name": "etudiants-api",
+  "name": "Students-api",
   "version": "1.0.0",
-  "description": "API REST CRUD Etudiants - architecture MVC en TypeScript (Express)",
+  "description": "API REST CRUD Students - architecture MVC en TypeScript (Express)",
   "main": "dist/server.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts"
+    "dev": "nodemon --exec tsx src/server.ts"
   },
   "dependencies": {
     "dotenv": "^17.4.2",
     "express": "^4.19.2",
-    "nodemon": "^3.1.14",
     "pg": "^8.23.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
     "@types/node": "^20.14.9",
     "@types/pg": "^8.21.0",
+    "nodemon": "^3.1.14",
     "ts-node-dev": "^2.0.0",
+    "tsx": "^4.23.12",
     "typescript": "^5.5.3"
   }
 }

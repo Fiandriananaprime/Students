@@ -1,5 +1,5 @@
 import express from "express";
-import etudiantRoutes from "./routes/etudiant.routes";
+import StudentsRoute from "./routes/StudentsRoute";
 import { errorHandler } from "./middleware/errorHandler";
 
 const app = express();
@@ -7,7 +7,7 @@ const PORT = process.env.PORT ?? 8080;
 
 app.use(express.json());
 
-app.use("/etudiants", etudiantRoutes);
+app.use("/Students", StudentsRoute);
 
 
 app.use(errorHandler);

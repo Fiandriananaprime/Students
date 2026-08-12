@@ -1,10 +1,10 @@
 import { Request, Response, NextFunction } from "express";
-import { etudiantService } from "../service/etudiant.service";
+import { StudentsService } from "../service/StudentService";
 
-class EtudiantController {
+class StudentController {
   findAll = (req: Request, res: Response, next: NextFunction) => {
     try {
-      res.status(200).json(etudiantService.findAll());
+      res.status(200).json(StudentsService.findAll());
     } catch (err) {
       next(err);
     }
@@ -13,7 +13,7 @@ class EtudiantController {
   findById = (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      res.status(200).json(etudiantService.findById(id));
+      res.status(200).json(StudentsService.findById(id));
     } catch (err) {
       next(err);
     }
@@ -21,7 +21,7 @@ class EtudiantController {
 
   create = (req: Request, res: Response, next: NextFunction) => {
     try {
-      const cree = etudiantService.create(req.body);
+      const cree = StudentsService.create(req.body);
       res.status(201).json(cree);
     } catch (err) {
       next(err);
@@ -31,7 +31,7 @@ class EtudiantController {
   update = (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      res.status(200).json(etudiantService.update(id, req.body));
+      res.status(200).json(StudentsService.update(id, req.body));
     } catch (err) {
       next(err);
     }
@@ -40,7 +40,7 @@ class EtudiantController {
   partialUpdate = (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      res.status(200).json(etudiantService.partialUpdate(id, req.body));
+      res.status(200).json(StudentsService.partialUpdate(id, req.body));
     } catch (err) {
       next(err);
     }
@@ -49,7 +49,7 @@ class EtudiantController {
   delete = (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      etudiantService.delete(id);
+      StudentsService.delete(id);
       res.status(204).send();
     } catch (err) {
       next(err);
@@ -57,4 +57,4 @@ class EtudiantController {
   };
 }
 
-export const etudiantController = new EtudiantController();
+export const Controller = new StudentController();
