@@ -2,7 +2,7 @@ export class User {
     private id?: string;
     private email: string;
     private password: string;
-    private userName: string;
+    private userName: string | null;
     private emailVerified: boolean;
     private verificationCode?: string;
     private verificationCodeExpiresAt?: Date;
@@ -14,7 +14,7 @@ export class User {
         this.email = email;
         this.password = password;
         this.emailVerified = false;
-        this.userName = "";
+        this.userName = null;
     }
 
     getId(): string | undefined {
@@ -32,10 +32,10 @@ export class User {
         this.email = email;
     }
     
-    getUserName() : string | undefined {
+    getUserName() : string | null {
         return this.userName
     }
-    setUserName(username: string): void {
+    setUserName(username: string | null): void {
         this.userName= username
     }
     getPassword(): string {
