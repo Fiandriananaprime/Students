@@ -2,14 +2,15 @@ import { Request, Response, NextFunction } from "express";
 import { StudentsService } from "../service/StudentService";
 
 class StudentController {
-  findAll = (req: Request, res: Response, next: NextFunction) => {
+  findAll = async (req: Request, res: Response, next: NextFunction) => {
     try {
-      res.status(200).json(StudentsService.findAll());
-      
+        const students = await StudentsService.findAll();
+
+        res.status(200).json(students);
     } catch (err) {
-      next(err);
+        next(err);
     }
-  };
+};
 
   findById = (req: Request, res: Response, next: NextFunction) => {
     try {

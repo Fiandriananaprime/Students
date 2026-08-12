@@ -17,6 +17,7 @@ app.use("/students", StudentsRoute);
 
 
 app.use(errorHandler);
+console.log(process.env.FRONTEND_URL);
 
 app.listen(PORT, "0.0.0.0",() => {
   console.log(`API démarrée sur http://localhost:${PORT}`);
