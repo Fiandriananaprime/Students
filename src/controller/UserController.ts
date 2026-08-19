@@ -31,9 +31,6 @@ export class UserController {
                 password
             );
 
-            if (userName) {
-                user.setUserName(userName);
-            }
 
             await this.userService.create(user);
 

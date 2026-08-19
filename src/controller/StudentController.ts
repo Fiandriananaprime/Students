@@ -12,10 +12,12 @@ class StudentController {
     }
 };
 
-  findById = (req: Request, res: Response, next: NextFunction) => {
+  findById =async (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      res.status(200).json(StudentsService.findById(id));
+      const student = await StudentsService.findById(id)
+
+      res.status(200).json(student);
     } catch (err) {
       next(err);
     }
