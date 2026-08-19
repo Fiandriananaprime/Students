@@ -125,11 +125,10 @@ export class UserService {
             {
                 userId: user.getId(),
                 email: user.getEmail(),
-                userName: user.getUserName()
             },
             secret,
             {
-                expiresIn: "1h"
+                expiresIn: "24h"
             }
         );
     }

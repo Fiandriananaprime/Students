@@ -32,7 +32,6 @@ export class UserRepository {
                 user.getId(),
                 user.getEmail(),
                 user.getPassword(),
-                user.getUserName(),
                 user.isEmailVerified()
             ]
         );
@@ -103,7 +102,6 @@ export class UserRepository {
         );
 
         user.setId(row.id);
-        user.setUserName(row.username);
         user.setEmailVerified(row.email_verified);
 
         if (row.verification_code) {
