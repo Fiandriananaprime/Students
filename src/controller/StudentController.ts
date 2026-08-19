@@ -23,38 +23,40 @@ class StudentController {
     }
   };
 
-  create = (req: Request, res: Response, next: NextFunction) => {
+  create = async  (req: Request, res: Response, next: NextFunction) => {
     try {
-      const cree = StudentsService.create(req.body);
+      const cree = await StudentsService.create(req.body);
       res.status(201).json(cree);
     } catch (err) {
       next(err);
     }
   };
 
-  update = (req: Request, res: Response, next: NextFunction) => {
+  update = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      res.status(200).json(StudentsService.update(id, req.body));
+      const student = await StudentsService.update(id, req.body)
+      res.status(200).json(student);
     } catch (err) {
       next(err);
     }
   };
 
-  partialUpdate = (req: Request, res: Response, next: NextFunction) => {
+  partialUpdate = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
-      res.status(200).json(StudentsService.partialUpdate(id, req.body));
+      const student = StudentsService.partialUpdate(id, req.body);
+      res.status(200).json(student);
     } catch (err) {
       next(err);
     }
   };
 
-  delete = (req: Request, res: Response, next: NextFunction) => {
+  delete = async (req: Request, res: Response, next: NextFunction) => {
     try {
       const id = Number(req.params.id);
       StudentsService.delete(id);
-      res.status(204).send();
+      await res.status(204).send();
     } catch (err) {
       next(err);
     }
